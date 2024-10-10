@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ProductGrid from "../ProductGrid/ProductGrid";
 interface HomeProps {
   children?: React.ReactNode;
 }
@@ -9,7 +10,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px", padding: "20px" }}>
-      <h1>Bienvenue sur la page d'accueil</h1>
+      <ProductGrid></ProductGrid>
       {children}
 
       <button onClick={() => navigate("/user/settings")}>

@@ -1,0 +1,19 @@
+.product-card-container {
+  max-width: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.product-card-container.dark {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.product-card-details {
+  padding: 20px;
+}
+
+.product-card-price {
+  font-weight: bold;
+}
