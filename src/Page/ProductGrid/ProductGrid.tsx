@@ -1,58 +1,45 @@
+import React, { useState } from "react";
 import ProductCard from "../../Component/ProductCard/ProductCard";
 import "./ProductGrid.css";
-import { ReactNode } from "react";
+import { Product } from "../../Interfaces/Product";
+import { Cart } from "../../Component/Cart/Cart";
 
-const products = [
-  {
-    id: 1,
-    name: "Product 1",
-    description: "Description 1",
-    price: 29.99,
-    image: "https://via.placeholder.com/200",
-  },
-  {
-    id: 2,
-    name: "Product 2",
-    description: "Description 2",
-    price: 39.99,
-    image: "https://via.placeholder.com/200",
-  },
-  {
-    id: 3,
-    name: "Product 3",
-    description: "Description 3",
-    price: 49.99,
-    image: "https://via.placeholder.com/200",
-  },
-  {
-    id: 4,
-    name: "Product 4",
-    description: "Description 4",
-    price: 19.99,
-    image: "https://via.placeholder.com/200",
-  },
+const products: Product[] = [
+  { id: 1, name: "Pomme", description: "Pomme rouge fraîche", price: 1.99 },
+  { id: 2, name: "Banane", description: "Banane jaune mûre", price: 0.99 },
+  { id: 3, name: "Cerise", description: "Cerises rouges sucrées", price: 3.99 },
+  { id: 4, name: "Datte", description: "Dattes délicieuses", price: 4.99 },
   {
     id: 5,
-    name: "Product 5",
-    description: "Description 5",
-    price: 59.99,
-    image: "https://via.placeholder.com/200",
+    name: "Baie de sureau",
+    description: "Baies de sureau saines",
+    price: 5.99,
   },
-  {
-    id: 6,
-    name: "Product 6",
-    description: "Description 6",
-    price: 24.99,
-  },
+  { id: 6, name: "Figue", description: "Figues juteuses", price: 2.99 },
 ];
 
-const ProductGrid = ({ children }: { children?: ReactNode }) => {
+const ProductGrid = () => {
+  const [cart, setCart] = useState<{ [key: number]: number }>({});
+
+  const addToCart = (product: Product) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      [product.id]: (prevCart[product.id] || 0) + 1,
+    }));
+  };
+
   return (
-    <div className="product-grid">
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-      {children}
+    <div className="grid-container">
+      <div className="product-grid">
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            addToCart={addToCart}
+          />
+        ))}
+      </div>
+      <Cart cart={cart} products={products} />
     </div>
   );
 };
