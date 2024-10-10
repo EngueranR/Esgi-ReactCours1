@@ -1,6 +1,6 @@
+import { useTheme } from "../../Context/DarkThemeContext";
 import "./formLogin.css";
 import { ReactNode } from "react";
-import { useTheme } from "../DarkThemeContext";
 
 export default function FormLogin({ children }: { children: ReactNode }) {
   const { darkTheme, toggleTheme } = useTheme();

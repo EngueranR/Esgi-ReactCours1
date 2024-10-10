@@ -9,9 +9,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
   const navigate = useNavigate();
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Bienvenue sur la page d'accueil</h1>
-      <p>Connexion réussie !</p>
+    <div>
       <button onClick={() => navigate("/user/settings")}>
         Aller aux paramètres
       </button>

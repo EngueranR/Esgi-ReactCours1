@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../Page/Home";
-import Settings from "../Page/Settings";
+import Home from "../Page/Home/Home";
+import Settings from "../Page/Settings/Settings";
 
 export default function UserRoute() {
   const isAdmin = false;
