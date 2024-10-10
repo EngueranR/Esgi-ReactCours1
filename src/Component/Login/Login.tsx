@@ -8,6 +8,7 @@ export default function Login() {
   const { login, errorMessage } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [darkTheme] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,9 +19,9 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
+    <div>
       <h1>Login</h1>
-      <form className="login-form" onSubmit={handleLogin}>
+      <form onSubmit={handleLogin}>
         <input
           type="text"
           name="username"
@@ -37,7 +38,9 @@ export default function Login() {
         />
         <button type="submit">Login</button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      {errorMessage && (
+        <p className={`p ${darkTheme ? "dark" : ""}`}>{errorMessage}</p>
+      )}
     </div>
   );
 }

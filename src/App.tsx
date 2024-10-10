@@ -1,11 +1,11 @@
 import "./App.css";
-import FormLogin from "./Page/FormLogin/FormLogin";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
+import UserRoute from "./Route/User.route";
 import { DarkThemeProvider } from "./Context/DarkThemeContext";
 import { AuthProvider } from "./Context/AuthContext";
-import ProtectedRoute from "./ProtectedRoute";
+import LoginForm from "./Page/LoginForm/LoginForm";
 import Login from "./Component/Login/Login";
-import UserRoute from "./Route/User.route";
 
 function App() {
   return (
@@ -16,12 +16,11 @@ function App() {
             <Route
               path="/login"
               element={
-                <FormLogin>
+                <LoginForm>
                   <Login />
-                </FormLogin>
+                </LoginForm>
               }
             />
-
             <Route
               path="/user/*"
               element={
